@@ -4,9 +4,7 @@ import base.net
 
 def echoText(text):
     echoScreen(text, config.username)
-    print(config.username + ': ' + text)
     for person in config.sendArr:
-        print(text + '(testing)')
         base.net.sendData(person, text)
 
 def echoScreen(text, username=""):
