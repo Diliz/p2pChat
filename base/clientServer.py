@@ -34,7 +34,7 @@ class Server(threading.Thread):
             connection.send(config.username.encode(encoding='UTF-8'))
             data = connection.recv(4)
             data = connection.recv(int(data.decode(encoding='UTF-8')))
-            if data.decode(encoding='UTF-8') != "Self":
+            if data.decode(encoding='UTF-8') != "Me":
                 config.usernames[connection] = data.decode(encoding='UTF-8')
             else:
                 config.usernames[connection] = addr[0]
