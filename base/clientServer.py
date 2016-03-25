@@ -75,7 +75,7 @@ class Client(threading.Thread):
 
 def runner(connection):
     while 1:
-        data = base.net.net_catch(connection)
+        data = base.net.getData(connection)
         if data != 1:
             base.text.echoScreen(data, config.usernames[connection])
 
