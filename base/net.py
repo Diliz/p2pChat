@@ -9,12 +9,10 @@ def sendData(connection, message):
 
 def getData(connection):
     data = connection.recv(4)
-    print(data)
     if data.decode(encoding='UTF-8')[0] == '-':
         base.handler.eventHandler(data.decode(encoding='UTF-8'), connection)
         return 1
     data = connection.recv(int(data.decode(encoding='UTF-8')))
-    print(data)
     return data.decode(encoding='UTF-8')
 
 def checkData(number):
