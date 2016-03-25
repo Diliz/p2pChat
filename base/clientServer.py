@@ -30,7 +30,7 @@ class Server(threading.Thread):
                 continue
 
             base.text.echoScreen("Connected by " + str(addr[0]), "System")
-            connection.send(checkData(len(config.username)).encode(encoding='UTF-8'))
+            connection.send(base.net.checkData(len(config.username)).encode(encoding='UTF-8'))
             connection.send(config.username.encode(encoding='UTF-8'))
             data = connection.recv(4)
             data = connection.recv(int(data.decode(encoding='UTF-8')))
@@ -60,7 +60,7 @@ class Client(threading.Thread):
             base.text.echoScreen("Connected to: " + self.host + " on port: " + str(self.port), "System")
             config.ips.append(self.host)
 
-            connection.send(checkData(len(config.username)).encode(encoding='UTF-8'))
+            connection.send(base.net.checkData(len(config.username)).encode(encoding='UTF-8'))
             connection.send(config.username.encode(encoding='UTF-8'))
 
             data = connection.recv(4)
